@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://2wap0283yk0r"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rxg2q"]
+size = Vector3(60, 2, 60)
+
+[sub_resource type="BoxMesh" id="BoxMesh_rspac"]
+size = Vector3(60, 2, 60)
+
+[node name="Main" type="Node" unique_id=2134195733]
+
+[node name="Ground" type="StaticBody3D" parent="." unique_id=2072921400]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground" unique_id=969310955]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+shape = SubResource("BoxShape3D_rxg2q")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground" unique_id=1926622664]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+mesh = SubResource("BoxMesh_rspac")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1108838150]
+transform = Transform3D(0.531609, 0.72266257, 0.44175878, -0.6527156, 0.017155617, 0.75740856, 0.5397723, -0.690988, 0.4808132, 0, 22.318974, 0)
+shadow_enabled = true
