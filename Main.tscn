@@ -27,6 +27,9 @@ shadow_enabled = true
 [node name="Player" parent="." unique_id=18193515 instance=ExtResource("1_glv2v")]
 
 [node name="CameraPivot" type="Marker3D" parent="." unique_id=2068177013]
+transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0, 0, 0)
 
 [node name="Camera3D" type="Camera3D" parent="CameraPivot" unique_id=1971840610]
-transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0, 6.4496384, 25.449638)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 19)
+projection = 1
+size = 19.0
