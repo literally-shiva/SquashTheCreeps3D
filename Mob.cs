@@ -8,6 +8,9 @@ public partial class Mob : CharacterBody3D
     [Export]
     public int MaxSpeed { get; set; } = 18;
 
+    [Signal]
+    public delegate void SquashedEventHandler();
+
     public void Initialize(Vector3 startPosition, Vector3 playerPosition)
     {
         LookAtFromPosition(startPosition, playerPosition, Vector3.Up);
@@ -25,6 +28,12 @@ public partial class Mob : CharacterBody3D
 
     private void OnVisibilityNotifierScreenExited()
     {
+        QueueFree();
+    }
+
+    public void Squash()
+    {
+        EmitSignal(SignalName.Squashed);
         QueueFree();
     }
 }
