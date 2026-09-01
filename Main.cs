@@ -16,6 +16,8 @@ public partial class Main : Node
         mob.Initialize(mobSpawnLocation.Position, playerPosition);
 
         AddChild(mob);
+
+        mob.Squashed += GetNode<ScoreLabel>("UserInterface/ScoreLabel").OnMobSquashed;
     }
 
     private void OnPlayerHit()

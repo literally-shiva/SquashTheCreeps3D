@@ -3,6 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://ceuu150fmggvr" path="res://Player.tscn" id="1_glv2v"]
 [ext_resource type="Script" uid="uid://b8dda1f5du5ff" path="res://Main.cs" id="1_uu6xs"]
 [ext_resource type="PackedScene" uid="uid://defdm2qdva75q" path="res://Mob.tscn" id="2_r0du0"]
+[ext_resource type="FontFile" uid="uid://cyxhh7ddkn62q" path="res://fonts/Montserrat-Medium.ttf" id="4_cm0pq"]
+[ext_resource type="Script" uid="uid://irvxyfqgluas" path="res://ScoreLabel.cs" id="5_fos0i"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rxg2q"]
 size = Vector3(60, 2, 60)
@@ -23,6 +25,10 @@ _data = {
 "tilts": PackedFloat32Array(0, 0, 0, 0)
 }
 point_count = 4
+
+[sub_resource type="Theme" id="Theme_cm0pq"]
+default_font = ExtResource("4_cm0pq")
+default_font_size = 22
 
 [node name="Main" type="Node" unique_id=2134195733]
 script = ExtResource("1_uu6xs")
@@ -77,11 +83,28 @@ mesh = SubResource("CylinderMesh_rspac")
 curve = SubResource("Curve3D_glv2v")
 
 [node name="SpawnLocation" type="PathFollow3D" parent="SpawnPath" unique_id=48528984]
-transform = Transform3D(-0.0037598945, 0, -0.99999255, 0, 1, 0, 0.99999255, 0, -0.0037598945, -12.5, 0, -13.594)
+transform = Transform3D(-0.003759894, 0, -0.99999243, 0, 1, 0, 0.99999243, 0, -0.003759894, -12.5, 0, -13.594)
 
 [node name="MobTimer" type="Timer" parent="." unique_id=133294000]
 wait_time = 0.5
 autostart = true
+
+[node name="UserInterface" type="Control" parent="." unique_id=562761247]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ScoreLabel" type="Label" parent="UserInterface" unique_id=10542343]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 22.0
+offset_right = 118.0
+offset_bottom = 50.0
+theme = SubResource("Theme_cm0pq")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Score: 0"
+script = ExtResource("5_fos0i")
 
 [connection signal="Hit" from="Player" to="." method="OnPlayerHit"]
 [connection signal="timeout" from="MobTimer" to="." method="OnMobTimerTimeout"]
