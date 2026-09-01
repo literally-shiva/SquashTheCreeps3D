@@ -20,6 +20,10 @@ run/main_scene="uid://2wap0283yk0r"
 config/features=PackedStringArray("4.7", "C#")
 config/icon="res://icon.webp"
 
+[autoload]
+
+MusicPlayer="*uid://bqv2ify8vx6d4"
+
 [display]
 
 window/size/viewport_width=720
