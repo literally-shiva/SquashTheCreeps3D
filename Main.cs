@@ -23,5 +23,19 @@ public partial class Main : Node
     private void OnPlayerHit()
     {
         GetNode<Timer>("MobTimer").Stop();
+        GetNode<Control>("UserInterface/Retry").Show();
+    }
+
+    public override void _Ready()
+    {
+        GetNode<Control>("UserInterface/Retry").Hide();
+    }
+
+    public override void _UnhandledInput(InputEvent @event)
+    {
+        if (@event.IsActionPressed("ui_accept") && GetNode<Control>("UserInterface/Retry").Visible)
+        {
+            GetTree().ReloadCurrentScene();
+        }
     }
 }
