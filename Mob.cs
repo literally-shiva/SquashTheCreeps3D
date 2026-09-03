@@ -19,6 +19,8 @@ public partial class Mob : CharacterBody3D
         int randomSpeed = GD.RandRange(MinSpeed, MaxSpeed);
         Velocity = Vector3.Forward * randomSpeed;
         Velocity = Velocity.Rotated(Vector3.Up, Rotation.Y);
+
+        GetNode<AnimationPlayer>("Pivot/AnimationPlayer").SpeedScale = randomSpeed / MinSpeed;
     }
 
     public override void _PhysicsProcess(double delta)

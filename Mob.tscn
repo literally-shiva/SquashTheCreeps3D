@@ -3,6 +3,100 @@
 [ext_resource type="PackedScene" uid="uid://bicorb7we351t" path="res://art/mob.glb" id="1_584jx"]
 [ext_resource type="Script" uid="uid://p0p4cg20qdw2" path="res://Mob.cs" id="1_r6b5h"]
 
+[sub_resource type="Animation" id="Animation_kpjcp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Character:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.5, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Character:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_kne1u"]
+resource_name = "float"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Character:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.3, 0.7, 1),
+"transitions": PackedFloat32Array(0.4204483, 2.070532, 1),
+"update": 0,
+"values": [Vector3(0, 0.5, 0), Vector3(0, 1.15, 0), Vector3(0, 0.85, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Character:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1, 0.5, 1),
+"transitions": PackedFloat32Array(0.4204483, 0.43527538, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0.13962634, 0, 0), Vector3(-0.15707964, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_r6b5h"]
+_data = {
+&"RESET": SubResource("Animation_kpjcp"),
+&"float": SubResource("Animation_kne1u")
+}
+
+[sub_resource type="Animation" id="Animation_r6b5h"]
+resource_name = "float"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Character:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.3, 0.7, 1),
+"transitions": PackedFloat32Array(0.4204483, 2.070532, 1),
+"update": 0,
+"values": [Vector3(0, 0.5, 0), Vector3(0, 1.15, 0), Vector3(0, 0.85, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Character:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1, 0.5, 1),
+"transitions": PackedFloat32Array(0.4204483, 0.43527538, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0.13962634, 0, 0), Vector3(-0.15707964, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6frnq"]
+_data = {
+&"float": SubResource("Animation_r6b5h")
+}
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_rspac"]
 size = Vector3(1.5, 1.1, 1.8)
 
@@ -15,6 +109,12 @@ script = ExtResource("1_r6b5h")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
 
 [node name="Character" parent="Pivot" unique_id=1128539342 instance=ExtResource("1_584jx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Pivot" unique_id=223678900]
+libraries/ = SubResource("AnimationLibrary_r6b5h")
+libraries/MyLib = SubResource("AnimationLibrary_6frnq")
+autoplay = &"float"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2011081584]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)

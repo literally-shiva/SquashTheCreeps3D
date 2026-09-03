@@ -80,7 +80,7 @@ script = ExtResource("1_kpjcp")
 [node name="Character" parent="Pivot" unique_id=1171877449 instance=ExtResource("1_xhfnw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Pivot" unique_id=2038138857]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Pivot" unique_id=68668066]
 libraries/ = SubResource("AnimationLibrary_e80uo")
 autoplay = &"float"
 
